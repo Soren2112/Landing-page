@@ -1,0 +1,55 @@
+
+
+<!-- Fordi man koder i kolonner, er man nødt til at skrive koden i 3 forskellige kodestykker -->
+
+<html>
+    <section class="about">
+		<h1>Om Dit & Mit Randers</h1>
+	</section>
+</html>
+
+<style>
+.about h1{
+    font-family: 'mitr', Sans-Serif;
+	font-size: 30px;
+	color: #94be32;
+	margin-top: 30px;
+    text-align: center;
+}
+
+</style>
+
+
+
+<html>
+    <section class="Fremtiden">
+		<p><i><b><span style="font-size: 20px;">Dit & Mit Randers</span></b> er med til at skabe et fundament for fremtidens handlings oplevelser. Ved at sætte nye grænser for hvordan man kan handle genbrug. Vi er en virksomhed, der tilbyder stand-leje til folk, der ønsker at sælge deres brugte ting. Vi er en butik, hvor folk kan leje en reol og udstille deres genstande til salg. Kunderne betaler en fast månedlig leje for reolen og får lov til at sælge deres ting på den. Kunderne bestemmer selv prisen på deres varer og modtager hele overskuddet fra salget efter kommission. Vi er inspireret af konceptet bag loppemarkeder, men med en mere moderne tilgang.     </i></p>
+	</section>
+</html>
+
+<style>
+Fremtiden{
+    font-family: 'manrope', Sans-Serif;
+	font-size: 30px;
+	color: #94be32;
+}
+
+</style>
+
+
+
+
+<html>
+    <section class="Fremtiden2">
+		<p><i>Vi tilbyder en platform for folk til at sælge og købe brugte ting på en nem og bekvem måde. Vi ønsker at gøre det nemt for folk at finde gode tilbud på brugte ting og hjælpe med at reducere affald og ressourceforbrug. Samlet set vil vi tilbyde en let og tilgængelig måde at sælge og købe brugte ting på, samtidig med at kunderne bidrager til den grønne omstilling ved at reducere mængden af affald og ressourceforbrug. Vi ønsker at skabe en mere bæredygtig fremtid og en renere planet.</i></p>
+	</section>
+</html>
+
+<style>
+Fremtiden2{
+    font-family: 'manrope', Sans-Serif;
+	font-size: 30px;
+	color: #94be32;
+}
+
+</style>
