@@ -1,0 +1,203 @@
+<html>
+    <section class="tekst_">
+		<p>Ved at deltage i vores quiz, kan du vinde en stand hos Dit & Mit Randers. Det eneste du skal gøre er at: 
+		<li>Alle svarene rigtig</li> 
+		<li>Følg vores sociale medier</li> 
+	</section>
+</html>
+
+<style>
+.tekst_{
+    margin-top: 15px;
+    font-family: 'Mitr', Sans-Serif;
+	font-size: 20px;
+	color: #94be32;
+}
+
+</style>
+
+
+
+<html>
+    <div class="quiz-container" id="quiz">
+        <div class="quiz-header">
+            <h2 id="question">Dit & Mit Randers quiz</h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" id="a" class="answer" />
+                    <label for="a" id="a-text">Svar</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="b" class="answer" />
+                    <label for="b" id="b-text">Svar</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="c" class="answer" />
+                    <label for="c" id="c-text">Svar</label>
+                </li>
+            </ul>
+        </div>
+        <button id="submit">Svar</button>
+    </div>
+</html>
+
+<style>
+
+.quiz-container {
+            margin-top: 18px;
+            margin-bottom: 30px;
+            background-color: #94be32;
+            border-radius: 15px;
+        }
+        
+        .quiz-header {
+            padding: 4rem;
+        }
+        
+        h2 {
+            font-family: 'mitr', Sans-Serif;
+            font-size: 25px;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            margin: 0;
+        }
+        
+        ul {
+            font-family: 'manrope', Sans-Serif;
+            color: #fff;
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        ul li {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        
+        ul li label {
+            cursor: pointer;
+        }
+        
+        button {
+            background-color: #fff;
+            border-color: #94be32;
+            width: 100%;
+            cursor: pointer;
+            font-family: 'mitr', Sans-Serif;
+            font-size: 25px;
+            color: #94be32;
+            padding: 10px;
+            border-radius: 15px;
+        }
+        
+        button:hover {
+            padding: 10px 20px;
+            background-image: linear-gradient(to right, #94be32, #ffffff);
+            border-radius: 15px;
+        }
+
+</style>
+
+<script>
+
+  // Definerer quizdata med spørgsmål og svar
+        const quizData = [
+            {
+                question: "Hvem er stifter af Dit & Mit Randers?",
+                a: "John Pertersen",
+                b: "Mikkel Bentzen",
+                c: "Ole Henriksen",
+                d: "Susanne Morsing",
+                correct: "b",
+            },
+            {
+                question: "Beliggenhed hos Dit & Mit Randers?",
+                a: "Ribevej 3",
+                b: "Trandbærvej 24",
+                c: "Kildevej 5",
+                d: "Holmevej 35",
+                correct: "a",
+            },
+            {
+                question: "Hvilken farve har vores medarbejder-tøj?",
+                a: "Lilla",
+                b: "Grøn",
+                c: "Blå",
+                d: "Pink",
+                correct: "b",
+            },
+        ];
+
+        // Henter DOM-elementer
+        
+        // Henter reference til div-containeren for quizzen
+        const quizContainer = document.getElementById("quiz");
+        
+        // Henter alle svarmulighederne
+        const answerElements = document.querySelectorAll(".answer");
+        
+        // Henter reference til elementet, der viser spørgsmålet
+        const questionElement = document.getElementById("question");   
+        
+        // Henter reference til label-elementet for svarmulighed A
+        const aText = document.getElementById("a-text");   
+        
+        // Henter reference til label-elementet for svarmulighed B
+        const bText = document.getElementById("b-text");
+        
+        // Henter reference til label-elementet for svarmulighed C
+        const cText = document.getElementById("c-text");  
+        
+        // Henter reference til submit-knappen
+        const submitButton = document.getElementById("submit");   
+
+        let currentQuiz = 0;   // Variabel til at holde styr på det aktuelle spørgsmål
+        let score = 0;   // Variabel til at holde styr på brugerens score
+
+        // Fravælger alle svarmuligheder
+        const deselectAnswers = () => {
+            answerElements.forEach((answer) => (answer.checked = false));
+        };
+
+        // Returnerer id'et på det valgte svar
+        const getSelected = () => {
+            let answer;
+            answerElements.forEach((answerElement) => {
+                if (answerElement.checked) answer = answerElement.id;
+            });
+            return answer;
+        };
+
+        // Indlæser spørgsmål og svarmuligheder for det aktuelle quiz
+        const loadQuiz = () => {
+            deselectAnswers();
+            const currentQuizData = quizData[currentQuiz];
+            questionElement.innerText = currentQuizData.question;
+            aText.innerText = currentQuizData.a;
+            bText.innerText = currentQuizData.b;
+            cText.innerText = currentQuizData.c;
+        };
+
+        // Kalder loadQuiz() for at indlæse det første spørgsmål og svarmuligheder
+        loadQuiz(); 
+
+        // Lytter efter klik på submit-knappen
+        submitButton.addEventListener("click", () => {
+            const answer = getSelected();
+            if (answer) {
+                if (answer === quizData[currentQuiz].correct) score++;
+                currentQuiz++;
+                if (currentQuiz < quizData.length) {
+                    loadQuiz();
+                } else {
+                    // Quizzen er afsluttet
+                    quizContainer.innerHTML = `
+                        <h2>Du har afsluttet quizzen!</h2>
+                        <p>Din score: ${score}/${quizData.length}</p>
+                        <button onclick="location.reload()">Spil igen</button>
+                    `;
+                }
+            }
+        });
+</script>
