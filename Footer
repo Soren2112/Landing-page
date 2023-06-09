@@ -1,0 +1,13 @@
+<html>
+  <section class="footer-text">© 2023 Dit & Mit Randers. Alle rettigheder forbeholdes.</p>
+  </section>
+</html>
+
+<style>
+.footer-text {
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+  font-family: "Mitr", sans-serif;
+}
+</style>
